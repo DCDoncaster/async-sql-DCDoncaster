@@ -1,60 +1,33 @@
-// Declare variables and assign objects from the DOM
-//register an event listener on the form object.
-//create an async function that create a POST request to the server and handles a response.
-
-// let receivedUsername = document.getElementById("username").value
-// let receivedPassword = document.getElementById("password").value
-// const loginBtn = document.getElementById("login-btn")
-// const spinnyWheelOfDoom = document.getElementById("loader")
-// const content = document.getElementById("content")
-const form = document.getElementById("login-form")
-let payload = new Object
-form.addEventListener('submit',onSubmit);
+// // Declare variables and assign objects from the DOM
+// //register an event listener on the form object.
+// //create an async function that create a POST request to the server and handles a response.
 
 
-async function onSubmit(e){
-  console.log('banana')
-console.log(e)
-const response = new Promise((resolve,reject) => {
-  if (e){
-    payload = {
-      username: 'testUser',
-      password: 'Multiverse!'
-    }
-    console.log('eggs')
-    resolve(fetch('http://localhost:3000', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(payload),
-    }) 
-    )
-    console.log('pineapple')//know we get this far as everyhting logs so above must be executing
-  } else{reject()}
-})
-console.log('grapes')// this logs too
-const data = response.json  // adding parenthesise stops the blow executing but should be fine?
-console.log(data)  //logs undefined
-console.log('grapefruit')//logs
+let spinnyWheel = document.getElementById('loader');
+let contentText = document.getElementById('content');
+let myLogin = document.getElementById('login-form');
+let receivedUsername = document.getElementById("username").value
+let receivedPassword = document.getElementById("password").value
+myLogin.addEventListener('submit', login);
 
-
+async function login(e) {
+  e.preventDefault();
+  let payload = {
+    // username: receivedUsername,
+    // password: receivedPassword
+    username: myLogin.elements[0].value,
+    password: myLogin.elements[1].value,
+  };
+  let response = await fetch('http://localhost:3000', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+  let output = await response.json();
+  console.log(output)
+  // console.log(await response.json());
+  
 }
-  // payload = {username:'testUser', password: 'Multiverse!'} //replace this with received values afterwards - hard coded to test login
-
-  // const response = fetch('http://localhost:3000', {
-  //       headers: {
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //       },
-  //       method: 'POST',
-  //       body: JSON.stringify(payload),
-  //     });
-  //     console.log(response) //shows promise pending but flicks away too quick to do anything about
-  //     const data = await response.json()
-  //     console.log(data)
- 
-
-
-
