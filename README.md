@@ -27,17 +27,17 @@ We are going to get our user to enter a username and password and then authentic
 
   
 
-- [ ] index.html has been provided with a basic structure. Look through and and find the id attributes that have been assigned to the various elements.
+- [x ] index.html has been provided with a basic structure. Look through and and find the id attributes that have been assigned to the various elements.
 
-- [ ] In your script.js file, assign these elements to a variable. (How do we get an object from our DOM?)
+- [x ] In your script.js file, assign these elements to a variable. (How do we get an object from our DOM?)
 
-- [ ] We will need to declare our function to handle the logic of submitting our data payload to our server. This will be triggered by the user when they hit the submit button. *A great name might be `onSubmit` to help remind*
+- [ x] We will need to declare our function to handle the logic of submitting our data payload to our server. This will be triggered by the user when they hit the submit button. *A great name might be `onSubmit` to help remind*
 
-- [ ] We will need to register an event listener (We'll be listening for the 'submit' event). Note, this can be done on the form element itself, and and not necessarily on the button. This will help us get our user inputs more easily. Don't forget when you are declaring the event listener, you will pass it your function as an argument. Don't call this function when you pass it!
+- [ x] We will need to register an event listener (We'll be listening for the 'submit' event). Note, this can be done on the form element itself, and and not necessarily on the button. This will help us get our user inputs more easily. Don't forget when you are declaring the event listener, you will pass it your function as an argument. Don't call this function when you pass it!
 
-- [ ] Returning to our `onSubmit` function, this will need a parameter that accepts the event. When we pass the function to our event listener, we do not call the function ( we don't use parenthesis). That means we can't pass arguments. However, as we are not calling the function, the event listener is calling it, it will pass the event for us! We should then build our function so that it accepts it.
+- [x ] Returning to our `onSubmit` function, this will need a parameter that accepts the event. When we pass the function to our event listener, we do not call the function ( we don't use parenthesis). That means we can't pass arguments. However, as we are not calling the function, the event listener is calling it, it will pass the event for us! We should then build our function so that it accepts it.
 
-- [ ] Inside this function, we are going to use the browser's Fetch API to make a call to our server (our own server :grin:) We hosted this server when we ran `npm run dev`. We are going to make a different type of request for this project called a POST request. Here is the code for that.
+- [x ] Inside this function, we are going to use the browser's Fetch API to make a call to our server (our own server :grin:) We hosted this server when we ran `npm run dev`. We are going to make a different type of request for this project called a POST request. Here is the code for that.
   
 ```js
 fetch('http://localhost:3000', {
@@ -50,7 +50,7 @@ fetch('http://localhost:3000', {
 });
 ```
 
-- [ ] Looking at the above code, we are passing a value on the 'body' key. This is a variable that we need to create. It will be an object needs keys of username and password. (The server will look for these)
+- [ x/2 ] Looking at the above code, we are passing a value on the 'body' key. This is a variable that we need to create. It will be an object needs keys of username and password. (The server will look for these)
 
 - [ ] Our server will either return an object with a key of loggedIn and an appropriate boolean response.  Based on this, we should update our DOM with the results.
 
